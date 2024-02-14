@@ -10,7 +10,7 @@ export default function ValentinesCard() {
     <div className="max-w-sm rounded-xl overflow-hidden shadow-lg bg-pink-100 m-4 p-4 ">
       <img
         className="w-full rounded-xl"
-        src="/valentines-day.png"
+        src="/valentines-day.jpg"
         alt="Valentine's Day"
       />
       <div className="px-4 py-4">
