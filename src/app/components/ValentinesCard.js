@@ -34,8 +34,7 @@ export default function ValentinesCard() {
               1000,
               "感谢你 ~ 💖",
               1000,
-              
-              
+               
             ]}
             speed={50}
             cursor={false}
