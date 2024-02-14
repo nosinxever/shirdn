@@ -15,7 +15,7 @@ export default function ValentinesCard() {
         alt="Valentine's Day"
       />
       <div className="px-4 py-4">
-        <div className="text-xl mb-2 text-pink-700">
+        <div className="text-xl mb-2 text-pink-700 " style={{ height: '50px', overflow: 'hidden' }}>
           <TypeAnimation
             sequence={[
               "Meeting you was the best thing that ever happened to me 💖",
