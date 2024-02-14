@@ -2,11 +2,10 @@
 "use client";
 
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-
 import { TypeAnimation } from "react-type-animation";
 
-export default function ValentinesCard() {
 
+export default function ValentinesCard() {
   return (
     <div className="max-w-sm rounded-xl overflow-hidden shadow-lg bg-pink-100 m-4 p-4 ">
       <img
@@ -15,7 +14,7 @@ export default function ValentinesCard() {
         alt="Valentine's Day"
       />
       <div className="px-4 py-4">
-        <div className="text-xl mb-2 text-pink-700 " style={{ height: '50px', overflow: 'hidden' }}>
+        <div className="text-xl mb-2 text-pink-700 " style={{ height: '60px', overflow: 'hidden' }}>
           <TypeAnimation
             sequence={[
               "Meeting you was the best thing that ever happened to me 💖",
