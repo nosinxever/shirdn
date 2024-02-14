@@ -20,7 +20,7 @@ export default function ValentinesCard() {
             sequence={[
               "Meeting you was the best thing that ever happened to me 💖",
               1000,
-              "遇见你是最美好的事情 💖",
+              "遇见你是我遇见最美好的事情 💖",
               1000,
               "The best Chinese New Year ever 💖",
               1000,
