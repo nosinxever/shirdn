@@ -45,14 +45,14 @@ export default function ValentinesCard() {
         <div className="flex justify-end pt-5">
           <div className="pr-2">
             <Avatar>
-              <AvatarImage src="/Shirdn.jpg" alt="@shadcn" />
-              <AvatarFallback>XD</AvatarFallback>
+              <AvatarImage src="/Evan.jpg" alt="@shadcn" />
+              <AvatarFallback>SJ</AvatarFallback>
             </Avatar>
           </div>
           <div>
             <Avatar>
-              <AvatarImage src="/Evan.jpg" alt="@shadcn" />
-              <AvatarFallback>SJ</AvatarFallback>
+              <AvatarImage src="/Shirdn.jpg" alt="@shadcn" />
+              <AvatarFallback>XD</AvatarFallback>
             </Avatar>
           </div>
         </div>
