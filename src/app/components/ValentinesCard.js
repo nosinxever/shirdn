@@ -1,17 +1,41 @@
 // components/ValentinesCard.js
+'use client'
+
+import { useEffect, useState } from 'react';
 
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 
 export default function ValentinesCard() {
+  const [message, setMessage] = useState('');
+  const fullMessage = 'Happy Valentine\'s Day! 💖';
+
+  useEffect(() => {
+    let index = 0;
+    const timer = setInterval(() => {
+      // Update to check if index is within the bounds of fullMessage
+      if (index < fullMessage.length) {
+        setMessage((prev) => prev + fullMessage[index]);
+        index++;
+      } else {
+        clearInterval(timer); // Clear interval when the end of the message is reached
+      }
+    }, 150); // Adjust typing speed as needed
+  
+    return () => clearInterval(timer); // Cleanup on component unmount
+  }, []);
+  
+
   return (
     <div className="max-w-sm rounded overflow-hidden shadow-lg bg-pink-100 m-4 p-4">
       <img className="w-full" src="/valentines-day.jpg" alt="Valentine's Day" />
       <div className="px-6 py-4">
+
         <div className="font-bold text-xl mb-2 text-pink-700">
-          Happy Valentine's Day!
+        {message}
         </div>
+
         <p className="text-gray-700 text-base pb-5">
-          Wishing you a day filled with love and happiness! 💖
+          Meeting you is the best thing happen to me 💖
         </p>
         <div className="flex ">
           <div className="pr-10">
