@@ -1,8 +1,8 @@
 "use client";
 
-import { Fragment } from 'react';
-import { useState, useEffect } from 'react';
+import { Fragment, useState } from 'react';
 import Head from 'next/head';
+import { motion } from 'framer-motion';
 
 export default function Home() {
   const [diceValue, setDiceValue] = useState(1);
@@ -12,43 +12,66 @@ export default function Home() {
 
   const rollDice = () => {
     setRolling(true);
+    let count = 0;
     const interval = setInterval(() => {
-      setDiceValue(Math.floor(Math.random() * 6)); // 更新点数
-    }, 100); // 每100毫秒更新一次点数
-
-    setTimeout(() => {
-      clearInterval(interval); // 停止点数变化
-      setRolling(false); // 停止动画
-      setDiceValue(Math.floor(Math.random() * 6)); // 最终点数
-    }, 4000); // 总动画时间
+      setDiceValue(Math.floor(Math.random() * 6));
+      count += 1;
+      if (count >= 40) {
+        clearInterval(interval);
+        setRolling(false);
+      }
+    }, 100);
   };
 
-  useEffect(() => {
-    return () => {
-      setRolling(false); // 确保组件卸载时动画停止
-    };
-  }, []);
+  const diceVariants = {
+    rolling: {
+      rotate: [0, 360],
+      scale: [1, 1.1, 1],
+      opacity: [1, 0.8, 1],
+      transition: {
+        duration: 0.1,
+        repeat: 40,
+        ease: 'linear'
+      }
+    },
+    stopped: {
+      rotate: 0,
+      scale: 1,
+      opacity: 1,
+      transition: {
+        type: 'spring',
+        stiffness: 300,
+        damping: 10
+      }
+    }
+  };
 
   return (
     <Fragment>
       <Head>
-        {/* 引入VT323字体 */}
+        <title>Game</title>
+        <meta name="description" content="Dice Game" />
         <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet" />
       </Head>
       <div className="flex flex-col items-center justify-center min-h-screen py-2" style={{ fontFamily: 'VT323, monospace' }}>
         <main className="flex flex-col items-center justify-center w-full flex-1 px-4 md:px-20 text-center">
-          <h1 className="text-6xl font-bold text-slate-500 "> For Shirdn</h1>
-          <div className="mt-6">
-            <div className={`text-9xl text-slate-500 md:text-[10rem] font-bold ${rolling ? 'animate-roll' : ''}`}>
-              {diceFaces[diceValue]}
-            </div>
-            <button
-              className="mt-8 px-6 py-3 bg-blue-400 text-white font-bold text-3xl rounded hover:bg-blue-600 transition-colors duration-150"
-              onClick={rollDice}
-              disabled={rolling}>
-              Start
-            </button>
-          </div>
+          <h1 className="text-6xl font-bold text-slate-500">For Shirdn</h1>
+          <motion.div
+            className="mt-6 text-9xl text-slate-500 md:text-[10rem] font-bold"
+            animate={rolling ? 'rolling' : 'stopped'}
+            variants={diceVariants}
+          >
+            {diceFaces[diceValue]}
+          </motion.div>
+          <motion.button
+            className="mt-8 px-6 py-3 bg-blue-400 text-white font-bold text-3xl rounded hover:bg-blue-600 transition-colors duration-150"
+            onClick={rollDice}
+            disabled={rolling}
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+          >
+            Start
+          </motion.button>
         </main>
       </div>
     </Fragment>
