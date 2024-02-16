@@ -37,13 +37,13 @@ export default function Home() {
       </Head>
       <div className="flex flex-col items-center justify-center min-h-screen py-2" style={{ fontFamily: 'VT323, monospace' }}>
         <main className="flex flex-col items-center justify-center w-full flex-1 px-4 md:px-20 text-center">
-          <h1 className="text-6xl font-bold">Specific for Shirdn</h1>
+          <h1 className="text-6xl font-bold text-slate-500 ">Specific for Shirdn</h1>
           <div className="mt-6">
-            <div className={`text-9xl md:text-[10rem] font-bold ${rolling ? 'animate-roll' : ''}`}>
+            <div className={`text-9xl text-slate-500 md:text-[10rem] font-bold ${rolling ? 'animate-roll' : ''}`}>
               {diceFaces[diceValue]}
             </div>
             <button
-              className="mt-8 px-6 py-3 bg-blue-500 text-white font-bold text-3xl rounded hover:bg-blue-700 transition-colors duration-150"
+              className="mt-8 px-6 py-3 bg-blue-400 text-white font-bold text-3xl rounded hover:bg-blue-600 transition-colors duration-150"
               onClick={rollDice}
               disabled={rolling}>
               Start
