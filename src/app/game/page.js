@@ -1,7 +1,8 @@
 "use client";
 
+import { Fragment } from 'react';
 import { useState, useEffect } from 'react';
-
+import Head from 'next/head';
 
 export default function Home() {
   const [diceValue, setDiceValue] = useState(1);
@@ -29,23 +30,27 @@ export default function Home() {
   }, []);
 
   return (
-  
-    <div className="flex flex-col items-center justify-center min-h-screen py-2">
-      <main className="flex flex-col items-center justify-center w-full flex-1 px-4 md:px-20 text-center">
-        <h1 className="text-6xl font-bold" >Shirdn 专用</h1>
-        <div className="mt-6">
-          <div className={`text-9xl md:text-[10rem] font-bold ${rolling ? 'animate-roll' : ''}`}>
-            {diceFaces[diceValue]}
+    <Fragment>
+      <Head>
+        {/* 引入VT323字体 */}
+        <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet" />
+      </Head>
+      <div className="flex flex-col items-center justify-center min-h-screen py-2" style={{ fontFamily: 'VT323, monospace' }}>
+        <main className="flex flex-col items-center justify-center w-full flex-1 px-4 md:px-20 text-center">
+          <h1 className="text-6xl font-bold">Specific for Shirdn</h1>
+          <div className="mt-6">
+            <div className={`text-9xl md:text-[10rem] font-bold ${rolling ? 'animate-roll' : ''}`}>
+              {diceFaces[diceValue]}
+            </div>
+            <button
+              className="mt-8 px-6 py-3 bg-blue-500 text-white font-bold text-3xl rounded hover:bg-blue-700 transition-colors duration-150"
+              onClick={rollDice}
+              disabled={rolling}>
+              Start
+            </button>
           </div>
-          <button
-            className="mt-8 px-6 py-3 bg-blue-500 text-white font-bold text-lg rounded hover:bg-blue-700 transition-colors duration-150"
-            onClick={rollDice}
-            disabled={rolling}>
-            摇骰子
-          </button>
-        </div>
-      </main>
-    </div>
-
+        </main>
+      </div>
+    </Fragment>
   );
 }
