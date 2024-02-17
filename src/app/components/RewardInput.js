@@ -25,7 +25,7 @@ const RewardInput = ({ onAddReward }) => {
         onChange={handleInputChange}
         className="mr-2 py-1 px-2 border border-gray-300 rounded"
       />
-      <button onClick={handleAddReward} className="py-1 px-4 bg-blue-500 text-white font-bold rounded hover:bg-blue-700">
+      <button onClick={handleAddReward} className="py-1 px-4  bg-blue-400 text-white font-bold rounded hover:bg-blue-600">
         Add Item
       </button>
     </div>
