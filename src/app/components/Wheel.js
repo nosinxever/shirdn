@@ -42,6 +42,8 @@ const Wheel = () => {
 
   return (
     <div className="flex flex-col items-center justify-center h-screen">
+    <h1 className="text-6xl font-bold text-slate-500 mb-12">For Shirdn</h1>
+
       <svg width="350" height="350" viewBox="0 0 200 200" className="relative"> {/* 尺寸调整为350x350 */}
         {rewards.map((reward, index) => (
           <g key={index} transform={`rotate(${segmentAngle * index}, 100, 100)`}>
@@ -83,7 +85,7 @@ const Wheel = () => {
         />
       </svg>
      
-      <button onClick={spin} className="mt-5 py-2 px-4 bg-blue-500 text-white font-bold rounded hover:bg-blue-700">
+      <button onClick={spin} className="mt-10 py-2 px-4 bg-blue-500 text-white font-bold rounded hover:bg-blue-700">
         Start
       </button>
 
