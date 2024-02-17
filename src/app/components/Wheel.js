@@ -80,7 +80,7 @@ const Wheel = () => {
           animate={{ rotate: rotation }}
           transition={{ duration: 2, ease: "linear" }}
           d="M98,95 L102,95 L102,20 L98,20 Z" // 绘制一个类似钟表指针的形状
-          fill="orange"
+          fill="white"
           style={{ originX: "100", originY: "100" }} // 设置旋转中心为SVG中心
         />
       </svg>
