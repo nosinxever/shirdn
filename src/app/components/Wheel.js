@@ -6,12 +6,13 @@ import React, { useState, useEffect } from 'react';
 import RewardInput from './RewardInput';
 
 const Wheel = () => {
-  const [rewards, setRewards] = useState(["奖品1", "奖品2", "奖品3", "奖品4", "奖品5"]);
+  const [rewards, setRewards] = useState(["You Lost", "Again"]);
   const segmentAngle = 360 / rewards.length; // 每个部分的角度
 
   const [isSpinning, setIsSpinning] = useState(false);
   const [rotation, setRotation] = useState(0);
   const [selectedReward, setSelectedReward] = useState('');
+  const [editableIndex, setEditableIndex] = useState(-1);
 
   useEffect(() => {
     if (!isSpinning) {
@@ -33,6 +34,12 @@ const Wheel = () => {
     setRewards([...rewards, newReward]);
   };
 
+  const handleRewardEdit = (index, newValue) => {
+    const newRewards = [...rewards];
+    newRewards[index] = newValue;
+    setRewards(newRewards);
+  };
+
   return (
     <div className="flex flex-col items-center justify-center h-screen">
       <svg width="350" height="350" viewBox="0 0 200 200" className="relative"> {/* 尺寸调整为350x350 */}
@@ -42,15 +49,28 @@ const Wheel = () => {
               d={`M100,100 L100,0 A100,100 0 0,1 ${100 + 100 * Math.sin(segmentAngle * Math.PI / 180)},${100 - 100 * Math.cos(segmentAngle * Math.PI / 180)} Z`}
               fill={`hsl(${index * (360 / rewards.length)}, 70%, 50%)`}
             />
-            <text
-              x="100"
-              y="15" // 根据需要调整文本位置
-              fill="white"
-              transform={`rotate(${segmentAngle / 2}, 100, 100)`}
-              style={{ textAnchor: 'middle', fontSize: '8px' }} // 可能需要根据视觉效果调整字体大小
-            >
-              {reward}
-            </text>
+            {editableIndex === index ? (
+              <foreignObject x="40" y="80" width="120" height="60">
+                <input
+                  type="text"
+                  value={reward}
+                  onChange={(e) => handleRewardEdit(index, e.target.value)}
+                  onBlur={() => setEditableIndex(-1)}
+                  className="w-full h-full px-1 border border-gray-300 rounded"
+                />
+              </foreignObject>
+            ) : (
+              <text
+                x="100"
+                y="15" // 根据需要调整文本位置
+                fill="white"
+                transform={`rotate(${segmentAngle / 2}, 100, 100)`}
+                style={{ textAnchor: 'middle', fontSize: '8px' }} // 可能需要根据视觉效果调整字体大小
+                onClick={() => setEditableIndex(index)}
+              >
+                {reward}
+              </text>
+            )}
           </g>
         ))}
         <motion.path
@@ -64,7 +84,7 @@ const Wheel = () => {
       </svg>
      
       <button onClick={spin} className="mt-5 py-2 px-4 bg-blue-500 text-white font-bold rounded hover:bg-blue-700">
-        点击转动
+        Start
       </button>
 
       <RewardInput onAddReward={addReward} />
