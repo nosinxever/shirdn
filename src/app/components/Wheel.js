@@ -24,10 +24,10 @@ const Wheel = () => {
 
   const spin = () => {
     // 生成新的旋转角度
-    const newRotation = 1440 + Math.floor(Math.random() * 360); // 确保至少旋转4圈
+    const newRotation = 2880 + Math.floor(Math.random() * 360); // 确保至少旋转4圈
     setRotation(rotation + newRotation);
     setIsSpinning(true);
-    setTimeout(() => setIsSpinning(false), 2000); // 转动持续2秒
+    setTimeout(() => setIsSpinning(false), 3000); // 转动持续2秒
   };
 
   const addReward = (newReward) => {
