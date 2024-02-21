@@ -53,7 +53,7 @@ export async function POST(request) {
 
         // Check if the post was added successfully
         if (response && response.id) {
-            return new Response(JSON.stringify({ message: 'success', postId: response.id }), {
+            return new Response(JSON.stringify({ message: 'Success', postId: response.id }), {
                 status: 200,
                 headers: {
                     'Content-Type': 'application/json',
