@@ -105,7 +105,7 @@ export default function WishCard({ wish }) {
     <Card className="relative z-10 bg-white bg-opacity-90 border-0 shadow-lg rounded-lg overflow-hidden">
       <CardHeader className={classes.bgColorClass}>
         <CardTitle className={`text-xl font-semibold ${classes.textColorClass}`}>{wish.title}</CardTitle>
-        <CardDescription className="text-sm">{convertTimeFormat(wish.lastEditedTime)}</CardDescription>
+        <CardDescription className="text-sm">{convertTimeFormat(wish.createdTime)}</CardDescription>
       </CardHeader>
       <CardContent className="p-4">
         <p className="h-24 overflow-hidden text-slate-700">{wish.description}</p>
