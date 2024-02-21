@@ -19,11 +19,12 @@ export default async function Home() {
   const wishs = await response.json();
   
   return (
-    <div>
+    <div >
       <WishList wishs={wishs} />
     </div>
   )
 }
+
 
 
 
