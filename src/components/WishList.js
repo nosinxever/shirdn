@@ -1,5 +1,3 @@
-
-
 //WishList.js
 import WishCard from "./WishCard";
 import AddWish from "./AddWish";
