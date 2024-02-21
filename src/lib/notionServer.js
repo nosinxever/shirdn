@@ -194,7 +194,7 @@ export async function getAllWishs(databaseId) {
     // Query the Notion database
     const response = await notion.databases.query({
       database_id: databaseId,
-      sorts: [{ property: "Last Edited Time", direction: "descending" }],
+      sorts: [{ property: "Created Time", direction: "descending" }],
     });
 
     // Check the response structure
