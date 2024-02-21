@@ -6,7 +6,7 @@ import React, { useState, useEffect } from 'react';
 import RewardInput from './RewardInput';
 
 const Wheel = () => {
-  const [rewards, setRewards] = useState(["You Lost","You Win", "Again"]);
+  const [rewards, setRewards] = useState(["手链","项链", "耳环", "戒指", "口红", "香水","SKii"]);
   const segmentAngle = 360 / rewards.length; // 每个部分的角度
 
   const [isSpinning, setIsSpinning] = useState(false);
