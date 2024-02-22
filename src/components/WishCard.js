@@ -107,8 +107,8 @@ export default function WishCard({ wish }) {
         <CardTitle className={`text-xl font-semibold ${classes.textColorClass}`}>{wish.title}</CardTitle>
         <CardDescription className="text-sm">{convertTimeFormat(wish.createdTime)}</CardDescription>
       </CardHeader>
-      <CardContent className="p-4">
-        <p className="h-24 overflow-hidden text-slate-700">{wish.description}</p>
+      <CardContent className=" p-4 bg-transparent">
+        <p className="h-24 overflow-hidden text-slate-700 bg-transparent">{wish.description}</p>
       </CardContent>
       <CardFooter className={`p-4 ${classes.footerBgColorClass}`}>
         <Badge variant="outline" className={`mr-2 ${classes.badgeTextColorClass}`}>{wish.status}</Badge>
