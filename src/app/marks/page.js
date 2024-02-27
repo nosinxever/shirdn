@@ -29,7 +29,7 @@ export default function Home() {
           <h1 className="text-4xl font-bold text-pink-600 mb-4">We Met</h1>
           <p className="text-md text-gray-600 mb-4">农历年二十九 | 华贸绿茶</p>
 
-          <p className="text-6xl font-bold text-red-500 mb-4">{sinceMet}</p>
+          <p className="text-6xl font-bold text-pink-600 mb-4">{sinceMet}</p>
           <p className="text-lg text-gray-700">It feels like a journey of a lifetime, and it's just the beginning. 💖</p>
         </div>
       </main>
