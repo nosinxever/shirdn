@@ -26,9 +26,9 @@ export default function Home() {
 
       <main className="p-8  max-w-md mx-auto">
         <div className="text-center">
-          <h1 className="text-4xl font-bold text-pink-600 mb-4">We Met</h1>
+          <h1 className="text-4xl font-bold text-pink-500 mb-4">We Met</h1>
 
-          <p className="text-6xl font-bold text-pink-600 mb-4">{sinceMet}</p>
+          <p className="text-6xl font-bold text-pink-500 mb-4">{sinceMet}</p>
           <p className="text-lg text-gray-700">It feels like a journey of a lifetime, and it's just the beginning. 💖</p>
           <p className="text-md text-gray-500 mt-5">农历年二十九 | 华贸绿茶</p>
           <p className="text-md text-gray-500 ">Since Feb 8 2024</p>
