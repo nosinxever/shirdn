@@ -24,7 +24,7 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main className="p-8 rounded-2xl shadow-xl max-w-md mx-auto bg-white bg-opacity-80 backdrop-filter backdrop-blur-sm">
+      <main className="p-8  max-w-md mx-auto">
         <div className="text-center">
           <h1 className="text-4xl font-bold text-pink-600 mb-4">We Met</h1>
 
@@ -32,8 +32,6 @@ export default function Home() {
           <p className="text-lg text-gray-700">It feels like a journey of a lifetime, and it's just the beginning. 💖</p>
           <p className="text-md text-gray-500 mt-5">农历年二十九 | 华贸绿茶</p>
           <p className="text-md text-gray-500 ">Since Feb 8 2024</p>
-
-
 
         </div>
       </main>
