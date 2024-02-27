@@ -1,6 +1,6 @@
 export const metadata = {
-    title: "💖 Wishs 💖",
-    description: "Wishs 💖",
+    title: "💖 Shirdn's Wishs 💖",
+    description: "💖 Shirdn's Wishs 💖",
   };
 
 
