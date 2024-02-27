@@ -1,5 +1,5 @@
 export const metadata = {
-    title: "Games 💖",
+    title: "💖 Games 💖",
     description: "Games 💖",
   };
 
