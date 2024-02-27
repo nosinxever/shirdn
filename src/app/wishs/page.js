@@ -1,5 +1,7 @@
 import WishList from "@/components/WishList";
 
+import Footer from "@/components/Footer";
+
 export const dynamic = 'force-dynamic'
 
 export default async function Home() {
@@ -21,6 +23,8 @@ export default async function Home() {
   return (
     <div >
       <WishList wishs={wishs} />
+      <Footer/>
+
     </div>
   )
 }

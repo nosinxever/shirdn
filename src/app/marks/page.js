@@ -4,6 +4,8 @@ import Head from 'next/head';
 import { useState, useEffect } from 'react';
 import { formatDistanceToNow } from 'date-fns';
 
+import Footer from '@/components/Footer';
+
 export default function Home() {
   const [sinceMet, setSinceMet] = useState('');
 
@@ -35,10 +37,7 @@ export default function Home() {
 
         </div>
       </main>
-
-      <footer className="absolute bottom-0 w-full text-center pb-4 text-gray-600">
-        Made with <span className="text-red-500">♥</span> for the love of my life
-      </footer>
+      <Footer/>
     </div>
   );
 }
