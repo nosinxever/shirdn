@@ -6,6 +6,7 @@ import { formatDistanceToNow } from 'date-fns';
 
 import Footer from '@/components/Footer';
 
+
 export default function Home() {
   const [sinceMet, setSinceMet] = useState('');
 
