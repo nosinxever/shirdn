@@ -147,6 +147,60 @@ export async function createWishsDatabase(parentId) {
   }
 }
 
+export async function createMoodDatabase(parentId) {
+  try {
+    // Check if the parent page exists
+    await notion.pages.retrieve({ page_id: parentId });
+  } catch (error) {
+    return new Response(JSON.stringify({ message: "Parent page not found" }), {
+      status: 404,
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+  }
+
+  const properties = {
+    Title: { title: {} }, // Title is a required property
+    Comment: { rich_text: {} },
+    Like: { checkbox: {} },
+    Tags: {
+      multi_select: {
+        options: [],
+      },
+    },
+    Slug: {
+      formula: {
+        expression: 'replaceAll((prop("Title") + "-") + id(), " ", "-")',
+      },
+    },
+    "Created Time": { created_time: {} },
+    "Last Edited Time": { last_edited_time: {} },
+  };
+
+  // Define properties for the new database
+
+  const title = [{ type: "text", text: { content: "MoodDB" } }];
+  const icon = { type: "emoji", emoji: "🎉" };
+  const parent = { type: "page_id", page_id: parentId };
+
+  try {
+    const response = await notion.databases.create({
+      parent: parent,
+      title: title,
+      properties: properties,
+      icon: icon,
+    });
+    return response;
+
+  } catch (error) {
+    console.error(error);
+    throw new Error("Failed to Create Database to Notion");
+  }
+}
+
+
+
 
 
 export async function getAllPosts(databaseId) {
@@ -209,6 +263,38 @@ export async function getAllWishs(databaseId) {
       description: entry.properties.Description.rich_text[0]?.text.content,
       status: entry.properties.Status.select?.name,
       color: entry.properties.Color.select?.name,
+      tags: entry.properties.Tags.multi_select.map((tag) => tag.name),
+      slug: entry.properties.Slug.formula.string,
+      createdTime: entry.properties["Created Time"].created_time,
+      lastEditedTime: entry.properties["Last Edited Time"].last_edited_time,
+    }));
+  } catch (error) {
+    console.error("Error in getEntriesData:", error);
+    throw error;
+  }
+}
+
+
+
+export async function getAllMood(databaseId) {
+  try {
+    // Query the Notion database
+    const response = await notion.databases.query({
+      database_id: databaseId,
+      sorts: [{ property: "Created Time", direction: "descending" }],
+    });
+
+    // Check the response structure
+    if (!response || !response.results) {
+      throw new Error("Invalid response structure from Notion API");
+    }
+
+    // Extract and format the entries data
+    return response.results.map((entry) => ({
+      id: entry.id,
+      title: entry.properties.Title.title[0]?.text.content,
+      comment: entry.properties.Description.rich_text[0]?.text.content,
+
       tags: entry.properties.Tags.multi_select.map((tag) => tag.name),
       slug: entry.properties.Slug.formula.string,
       createdTime: entry.properties["Created Time"].created_time,
@@ -409,6 +495,26 @@ export async function addWish(
         Status: { select: { name: status } },
         Color: { select: { name: color } },
         Tags: { multi_select: tags.map((tag) => ({ name: tag.trim() })) },
+      },
+    });
+
+    return response;
+  } catch (error) {
+    console.error(error);
+    throw new Error("Failed to add post to Notion");
+  }
+}
+
+
+export async function addMood(
+  title,
+  dbId,
+) {
+  try {
+    const response = await notion.pages.create({
+      parent: { database_id: dbId },
+      properties: {
+        Title: { title: [{ text: { content: title } }] },
       },
     });
 

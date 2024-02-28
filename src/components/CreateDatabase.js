@@ -10,7 +10,7 @@ const CreateDatabase = () => {
     event.preventDefault();
     setMessage("");
 
-    const response = await fetch("/api/create-wishs-database", {
+    const response = await fetch("/api/create-mood-database", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ parentId }),

@@ -1,5 +1,5 @@
 // App/api/posts/route.js
-import { getAllWishs,addWish} from "@/lib/notionServer";
+import { getAllMood,addMood} from "@/lib/notionServer";
 import { redirect } from 'next/navigation'
 
 // export const dynamic = 'force-dynamic'
@@ -11,7 +11,7 @@ export async function GET(request) {
     const slug = searchParams.get('query')
 
     if (slug !== null) {
-        redirect(`${process.env.NEXT_PUBLIC_BASE_URL}/api/wishs/${slug}`)
+        redirect(`${process.env.NEXT_PUBLIC_BASE_URL}/api/mood/${slug}`)
     }
 
     if (!databaseId) {
@@ -22,7 +22,7 @@ export async function GET(request) {
     }
 
     try {
-        const wishs = await getAllWishs(databaseId);
+        const wishs = await getAllMood(databaseId);
         return new Response(JSON.stringify(wishs), {
             status: 200,
             headers: { 'Content-Type': 'application/json' }
@@ -39,17 +39,17 @@ export async function GET(request) {
 }
 
 
-//add wish
+//add mood
 export async function POST(request) {
     // Parse the request body
-    const { title, description, status, tags, color} = await request.json();
+    const { title } = await request.json();
     // console.log(title, summary, category, tags, content,imageUrl)
 
-    const dbId = process.env.NOTION_WISHS_DATABASE_ID;
+    const dbId = process.env.NOTION_MOOD_DATABASE_ID;
 
     try {
         // Insert the post into Notion
-        const response = await addWish(title, description, status, tags,color,dbId)
+        const response = await addMood(title,dbId)
 
         // Check if the post was added successfully
         if (response && response.id) {
