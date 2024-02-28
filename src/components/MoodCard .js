@@ -2,8 +2,6 @@
 import { HeartIcon, ChatBubbleOvalLeftIcon } from '@heroicons/react/24/outline';
 
 const MoodPost = ({ username, handle, avatar, content, timestamp }) => {
-  // Tailwind classes for fixed widths on different screen sizes
-  // w-full on smaller screens, and a fixed width (e.g., w-96) on medium screens and above
   const cardClasses = "mx-auto bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700 p-4 w-full md:w-96";
 
   return (

@@ -1,7 +1,6 @@
-//WishList.js
+//MoodList.js
 "use client"
 
-import AddMood from "./AddMood";
 import MoodPost from "./MoodCard ";
 
 export default function MoodList() {
