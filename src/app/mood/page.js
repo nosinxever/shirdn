@@ -20,7 +20,7 @@ export default async function Home() {
   // const wishs = await response.json();
   
   return (
-    <div className="container mx-auto">
+    <div >
       <AddMood/>
      <MoodList/>
      <Footer/>
