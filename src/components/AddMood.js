@@ -1,6 +1,5 @@
 "use client"
 
-
 import React, { useState } from 'react';
 
 const AddMood = () => {
@@ -21,13 +20,13 @@ const AddMood = () => {
           placeholder="请尽情表达你的不满和满意。。。"
           value={postContent}
           onChange={(e) => setPostContent(e.target.value)}
-          style={{ height: '96px',resize: 'none' }} // Set fixed height for textarea
+          style={{ height: '72px',resize: 'none' }} // Set fixed height for textarea
 
         />
         <button
           type="submit"
           className="flex items-center justify-center p-2 rounded-md hover:bg-blue-300"
-          style={{ height: '96px' }} // Ensure button height matches textarea
+          style={{ height: '72px' }} // Ensure button height matches textarea
         >
         <SvgIcon />
         </button>
