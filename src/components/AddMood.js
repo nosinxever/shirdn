@@ -25,7 +25,7 @@ const AddMood = () => {
         />
         <button
           type="submit"
-          className="flex items-center justify-center p-2 rounded-md hover:bg-blue-300"
+          className="flex items-center justify-center p-3 rounded-md hover:bg-blue-300"
           style={{ height: '72px' }} // Ensure button height matches textarea
         >
         <SvgIcon />

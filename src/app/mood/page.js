@@ -6,7 +6,7 @@ export const dynamic = 'force-dynamic'
 export default async function Home() {
 
   // const response = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/wishs`);
-  
+
   // if (!response.ok) {
   //   console.log(new Error(`HTTP error! when fetching /api/wishs, status: ${response.status}`)) 
   //   return (
@@ -16,15 +16,16 @@ export default async function Home() {
   //     </div>
   //   )
   // }
-  
+
   // const wishs = await response.json();
-  
+
   return (
-    <div >
-      <AddMood/>
-     <MoodList/>
-     <Footer/>
-    </div>
+      <div className="mx-3">
+        <AddMood />
+        <MoodList />
+        <Footer/>
+      </div>
+
   )
 }
 
