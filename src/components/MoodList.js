@@ -17,5 +17,3 @@ export default function MoodList({ moods }) {
   );
 }
 
-
-{moods.map(mood => <MoodPost key={mood.id} wish={wish}
