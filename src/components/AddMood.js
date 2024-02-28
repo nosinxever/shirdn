@@ -12,7 +12,7 @@ const AddMood = () => {
   };
 
   return (
-    <div className="mx-auto w-full mt-5 md:w-96">
+    <div className="mx-auto w-full my-5 md:w-96">
       <form onSubmit={handleSubmit} className="flex items-end space-x-4">
         <textarea
           type="text"
