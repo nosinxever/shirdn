@@ -1,6 +1,6 @@
 import AddMood from "@/components/AddMood";
 import MoodList from "@/components/MoodList";
-
+import Footer from "@/components/Footer";
 export const dynamic = 'force-dynamic'
 
 export default async function Home() {
@@ -23,6 +23,7 @@ export default async function Home() {
     <div className="container mx-auto">
       <AddMood/>
      <MoodList/>
+     <Footer/>
     </div>
   )
 }
