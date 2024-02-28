@@ -26,7 +26,7 @@ export default function MoodList() {
         handle="Shirdn"
         avatar="Shirdn.jpg"
         content="为丹儿提供吐槽我的地方"
-        timestamp="15m"
+        timestamp="1m"
       />
     </div>
   );
