@@ -5,7 +5,7 @@ import { redirect } from 'next/navigation'
 // export const dynamic = 'force-dynamic'
 
 export async function GET(request) {
-    const databaseId = process.env.NOTION_WISHS_DATABASE_ID;
+    const databaseId = process.env.NOTION_MOOD_DATABASE_ID;
 
     const searchParams = request.nextUrl.searchParams
     const slug = searchParams.get('query')
@@ -15,21 +15,21 @@ export async function GET(request) {
     }
 
     if (!databaseId) {
-        return new Response(JSON.stringify({ message: "Server configuration error: NOTION_POSTS_DATABASE_ID is not set" }), {
+        return new Response(JSON.stringify({ message: "Server configuration error: NOTION_MOOD_DATABASE_ID is not set" }), {
             status: 500,
             headers: { 'Content-Type': 'application/json' }
         });
     }
 
     try {
-        const wishs = await getAllMood(databaseId);
-        return new Response(JSON.stringify(wishs), {
+        const moods = await getAllMood(databaseId);
+        return new Response(JSON.stringify(moods), {
             status: 200,
             headers: { 'Content-Type': 'application/json' }
         });
     } catch (error) {
-        console.error("Error fetching posts:", error);
-        return new Response(JSON.stringify({ message: "Error fetching posts", error: error.message }), {
+        console.error("Error fetching mood:", error);
+        return new Response(JSON.stringify({ message: "Error fetching mood", error: error.message }), {
             status: 500,
             headers: { 'Content-Type': 'application/json' }
         });

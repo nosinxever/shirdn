@@ -274,8 +274,6 @@ export async function getAllWishs(databaseId) {
   }
 }
 
-
-
 export async function getAllMood(databaseId) {
   try {
     // Query the Notion database
@@ -293,7 +291,7 @@ export async function getAllMood(databaseId) {
     return response.results.map((entry) => ({
       id: entry.id,
       title: entry.properties.Title.title[0]?.text.content,
-      comment: entry.properties.Description.rich_text[0]?.text.content,
+      comment: entry.properties.Comment.rich_text[0]?.text.content,
 
       tags: entry.properties.Tags.multi_select.map((tag) => tag.name),
       slug: entry.properties.Slug.formula.string,
