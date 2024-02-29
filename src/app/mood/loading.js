@@ -34,21 +34,14 @@ const LoadingSkeleton = () => (
 );
 
 
-
-
-
-
-
 export default function Loading() {
     return (
-        <div className="mx-3">
             <div className="flex flex-col items-center justify-center py-2">
                 <LoadingSkeleton />
                 <LoadingSkeleton />
                 <LoadingSkeleton />
                 <LoadingSkeleton />
             </div>
-        </div>
     );
 }
 
