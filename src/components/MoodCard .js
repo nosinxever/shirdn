@@ -1,6 +1,6 @@
 //MoodCard.js
 import { HeartIcon, ChatBubbleOvalLeftIcon } from '@heroicons/react/24/outline';
-import { convertTimeFormat } from "@/lib/utils";
+import { timeSince } from "@/lib/utils";
 
 
 const MoodPost = ({mood}) => {
@@ -16,7 +16,7 @@ const MoodPost = ({mood}) => {
             <div className="text-sm text-gray-500">@shirdn</div>
           </div>
         </div>
-        <div className="text-sm text-gray-500">{convertTimeFormat(mood.createdTime)}</div>
+        <div className="text-sm text-gray-500">{timeSince(mood.createdTime)}</div>
       </div>
       <div className="mt-2">
         <p className="text-gray-700 dark:text-gray-400">{mood.title}</p>

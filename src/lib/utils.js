@@ -27,3 +27,32 @@ export function convertTimeFormat(dateTimeString) {
   
   return readableFormat;
 }
+
+
+export function timeSince(dateTimeString) {
+  // Current date-time
+  const now = Date.now();
+
+  // Convert provided date-time string to Date object
+  const date = new Date(dateTimeString);
+
+  // Calculate difference in milliseconds
+  let diff = now - date.getTime();
+
+  // Time calculations for days, hours, minutes, and seconds
+  const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+  const hours = Math.floor(diff / (1000 * 60 * 60));
+  const minutes = Math.floor(diff / (1000 * 60));
+  const seconds = Math.floor(diff / 1000);
+
+  // Format output based on the duration
+  if (days > 0) {
+    return `${days} day${days > 1 ? 's' : ''}`;
+  } else if (hours > 0) {
+    return `${hours} hour${hours > 1 ? 's' : ''}`;
+  } else if (minutes > 0) {
+    return `${minutes} minute${minutes > 1 ? 's' : ''}`;
+  } else if (seconds < 60) {
+    return "Just now";
+  }
+}
