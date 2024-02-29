@@ -10,7 +10,6 @@ const SvgIcon = () => (
   );
 
 
-
 const AddMood = ({ onNewMoodAdded }) => {
   const [title, setTitle] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
