@@ -25,7 +25,6 @@ export default async function Home() {
     <div className="mx-3 ">
       <AddMood />
       <MoodList moods={moods}/>
-      <Footer />
     </div>
 
   )
